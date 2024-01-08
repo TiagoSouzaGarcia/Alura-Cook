@@ -1,16 +1,11 @@
-<script>
+<script lang="ts">
   //Prop para definir a classe. Ele será usada dinamicamente.
   export let ativa = false;
-  export let selecionavel = false;
 
-  function aoClicar() {
-    if (selecionavel) {
-      ativa = !ativa;
-    }
-  }
+  export let tamanho: "md" | "lg" = "md";
 </script>
 
-<div class="tag" class:ativa on:click={aoClicar}>
+<div class="tag {tamanho}" class:ativa>
   <slot />
 </div>
 
@@ -31,5 +26,10 @@
   .ativa {
     color: var(--branco);
     background-color: var(--laranja);
+  }
+
+  .lg {
+    font-size: 1.25rem;
+    padding: 1rem 1.5rem;
   }
 </style>
